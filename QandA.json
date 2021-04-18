@@ -1,0 +1,32 @@
+[
+    {
+        "Question": "The question-1 is?", 
+        "options" : [1,22,333,41],
+        "ans"     : 1
+    },
+    {
+        "Question": "Who am I",
+        "options":  [24,23,25,26],
+        "ans"     : 24
+    },
+    {
+        "Question": "The question-2 is?", 
+        "options":  ["abc","sdc","fde","ss"],
+        "ans"     : "abc"
+    },
+    {
+        "Question": "The question-3 is?", 
+        "options":  [1,2,3,4],
+        "ans"     : 4
+    },
+    {
+        "Question": "The question-4 is?", 
+        "options":  [0,1,2,3],
+        "ans"     : 2
+    },
+    {
+        "Question": "The question-5 is?", 
+        "options":  [10,11,12,13],
+        "ans"     : 10
+    }
+]
