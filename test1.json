@@ -4,6 +4,7 @@
 
     },
     {
-        "My age is": [24,23,25,26]
+        "Question": "The question is?", 
+        "options":  [24,23,25,26]
     }
 ]
