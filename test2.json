@@ -1,0 +1,22 @@
+[
+    {
+        "Who am I?": ["Samuel Suhas", "2020501003", "Sunny"]
+
+    },
+    {
+        "Question": "Who am I",
+        "options":  [24,23,25,26]
+    },
+    {
+        "Question": "The question-1 is?", 
+        "options":  [24,23,25,26]
+    },
+    {
+        "Question": "The question-2 is?", 
+        "options":  [1,2,3,4]
+    },
+    {
+        "Question": "The question-3 is?", 
+        "options":  [0,1,2,3]
+    }
+]
