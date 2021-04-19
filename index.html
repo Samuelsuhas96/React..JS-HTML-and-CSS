@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+        
+    <title >Quiz</title>
+    <div style=" color: red; font-size: 25px; padding-right: 20px;"id="demo"  align='right'></div>
+    <body>
+    <div id="demo">
+        <h2 style="font-size: 50px; color: green;" align="center">Quiz</h2>
+      
+        <button type="button" onclick="loadDoc(),countdown()" style="font-size: 25px;" >Start Quiz</button>
+        <div class="data1">
+            `<div class="main-div" name="name">
+                <div class=inner-div>
+                    <h2 class="question">Sample Question? </h2>
+                    <ul>
+                        <li>
+                            <input type="radio" name="answer" id="ans1" class="answer">
+                            <label for="ans1" id="option1" >Option1</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="answer" id="ans2" class="answer">
+                            <label for="ans2" id="option2" >Option 2</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="answer" id="ans3" class="answer">
+                            <label for="ans3" id="option3" >option 3</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="answer" id="ans4" class="answer">
+                            <label for="ans4" id="option4" >option 4</label>
+                        </li>
+                    </ul>
+                    <button id="submit">submit</button>
+                    <div id="showScore" class="scoreArea"></div>
+
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        var arr=[];
+        var quizDB=[];
+        function loadDoc(){
+           
+            var total_seconds = 300 * 1;
+            var c_minutes = parseInt(total_seconds / 60);
+            var c_seconds = parseInt(total_seconds % 60);
+            var timer;
+
+            function CheckTime() {
+            document.getElementById("demo").innerHTML = 'Time Left: ' + c_minutes + ' minutes ' + c_seconds + ' seconds ';
+
+            if (total_seconds > 0) {
+                total_seconds = total_seconds - 1;
+                c_minutes = parseInt(total_seconds / 60);
+                c_seconds = parseInt(total_seconds % 60);
+                timer = setTimeout(CheckTime, 1000);
+            }
+            
+            if(total_seconds===0) {
+                test.innerHTML = "<h2>You are out of time, You got "+correct+" of "+questions.length+" questions correct</h2>";
+            }
+            }
+            timer = setTimeout(CheckTime, 1000);
+
+
+
+
+
+
+
+
+
+
+            var str="";
+            var score=0;
+            var xhttp=new XMLHttpRequest();
+            xhttp.open('GET',"https://raw.githubusercontent.com/Samuelsuhas96/React..JS-HTML-and-CSS/main/test3.json", true);
+            xhttp.responseType='json';
+            xhttp.onload=function(){  
+                var status=xhttp.status;
+                if(status===200){
+                    for(i=0; i<xhttp.response.length; i++){
+                        let dict={};
+                       quizDB.push({question: xhttp.response[i][i+1],  a:xhttp.response[i]["a"], b:xhttp.response[i]["b"], c:xhttp.response[i]["c"], d:xhttp.response[i]["d"], ans:xhttp.response[i]["answer"] })
+                       
+                    }
+                        document.getElementById("data1").innerHTML=load();
+                            console.log(quizDB);
+
+                }           
+            };
+
+          xhttp.send();
+        };
+
+    function load(){      
+        const question=document.querySelector('.question');
+        const option1=document.querySelector('#option1');
+        const option2=document.querySelector('#option2');
+        const option3=document.querySelector('#option3');
+        const option4=document.querySelector('#option4');
+        const submit=document.querySelector('#submit');
+        const answers=document.querySelectorAll('.answer');
+        const showScore=document.querySelector('#showScore');
+        let questionCount=0;
+        let score=0;
+        const loadQuestion = () => {
+            const questionList=quizDB[questionCount];
+            question.innerText=questionList.question;
+            option1.innerText=questionList.a;
+            option2.innerText=questionList.b;
+            option3.innerText=questionList.c;
+            option4.innerText=questionList.d;
+
+        }
+        
+        loadQuestion();
+
+        const getCheckedAnswer = () => {
+            let answer;
+            answers.forEach((curAnsElem) => {
+                if(curAnsElem.checked){
+                    answer=curAnsElem.id;
+                }
+              
+
+            });  
+            return answer;
+        };
+
+        const deselectAll = () => {
+            answers.forEach((curAnsElem)=> curAnsElem.checked=false);
+        }
+
+
+        submit.addEventListener('click', ()=>{
+            const checkedAnswer=getCheckedAnswer();
+            console.log(checkedAnswer);
+            console.log(quizDB[questionCount].ans)
+            if(checkedAnswer==(quizDB[questionCount].ans)){
+                score++;
+            };
+
+            questionCount++;
+
+            deselectAll();
+
+            if(questionCount < quizDB.length){
+                loadQuestion();
+            }else{
+                showScore.innerHTML=
+                `<h3>You Scored ${score}/${quizDB.length}</h3>
+                <button class="btn" onclick="location.reload()">Try Again</button>`; 
+                showScore.classList.remove('scoreArea');         
+            }
+
+        });
+    };
+    function countdown(){
+        var count = 20;
+        var interval = setInterval(function(){
+            document.getElementById('count').innerHTML= "Time Left: " + count;
+            count--;
+            if (count === 0){
+                choose()
+                clearInterval(interval);
+                document.getElementById('count').innerHTML='Done';
+               
+                alert("You're out of time!");
+		    }
+        }, 1000);
+        }
+    </script>
+
+</body>
+</html>
