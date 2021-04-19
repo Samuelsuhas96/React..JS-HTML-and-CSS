@@ -9,11 +9,11 @@
     
     },
     {
-        "2" :"In AJAX you can ",
-        "a":"Update a web page without reloading the page",
-        "b":"Receive data from a server - after the page has loaded",
-        "c":"Send data to a server - in the background",
-        "d":"All of the above",
+        "2" :"What is the white of an egg called?",
+        "a":"Yolk",
+        "b":"Albumin",
+        "c":"Shell",
+        "d":"egg white",
         "answer":"ans4"
     
     },
@@ -27,10 +27,10 @@
     
     },
     {
-        "4" :"Ajax is a…",
-        "a":"Programing Language",
-        "b":"Technology",
-        "c":"OOPs concepts",
+        "4" :"The worl wide web is..?",
+        "a":" a programing Language",
+        "b":"an internetwork of computers",
+        "c":"OOPs concept",
         "d":"Options B and C",
         "answer":"ans2"
     
@@ -72,10 +72,10 @@
     
     },
     {
-        "9" :" What two main structures compose JSON?",
-        "a":"Key and value",
-        "b":"Class and Object",
-        "c":"Arrays and Objects",
+        "9" :" Where is India located?",
+        "a":"In Europe",
+        "b":"In Asia",
+        "c":"In Indonesia",
         "d":"None of the above",
         "answer":"ans1"
     
