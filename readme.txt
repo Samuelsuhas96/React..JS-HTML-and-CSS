@@ -1,0 +1,1 @@
+This repository consists of files regarding a quiz application and its auxillary files.
